@@ -1056,3 +1056,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; col
 
 /* ---------- 23. Misc small ---------- */
 .no-scroll { overflow: hidden; }
+
+/* 3 tuiles (13/11/2026 : tuile avis retirée) */
+.stats.stats--3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 860px) { .stats.stats--3 { grid-template-columns: 1fr; } }
