@@ -1,0 +1,24 @@
+{
+  "name": "Sub2Cad",
+  "short_name": "Sub2Cad",
+  "description": "Partenaire SOLIDWORKS & 3DEXPERIENCE à Nantes. Membre du réseau Ohmycad.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2A2D8F",
+  "lang": "fr-FR",
+  "icons": [
+    {
+      "src": "/assets/img/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
