@@ -1,0 +1,20 @@
+# Sub2Cad
+
+> Sub2Cad déploie SOLIDWORKS et 3DEXPERIENCE (Dassault Systèmes) pour les PME et startups industrielles, depuis Ancenis-Saint-Géréon près de Nantes, partout en France. Sub2Cad est membre du réseau de revendeurs Ohmycad.
+
+## Contact
+- Adresse : 238 rue des entrepreneurs, 44150 Ancenis-Saint-Géréon, France
+- Téléphone : +33 6 78 68 17 22
+- Email : fratinaud@sub2cad.fr
+- Interlocuteur : François Ratinaud
+
+## Ce que fait Sub2Cad
+- Vente et déploiement de SOLIDWORKS (desktop et SOLIDWORKS Connected) et des applications 3DEXPERIENCE : ENOVIA, SIMULIA, DELMIA, 3DEXCITE.
+- Accompagnement, formation et support : abonnement Ohmycare à 50 € par mois.
+- Audit gratuit de 30 minutes sur rendez-vous.
+
+## Pages
+- [Accueil](https://sub2cad.fr/) : offres, Ohmycare, équipe, FAQ, prise de rendez-vous.
+
+## Réseau
+- [Ohmycad](https://ohmycad.com/) : réseau de revendeurs Dassault Systèmes dont Sub2Cad est membre.
