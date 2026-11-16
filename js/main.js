@@ -126,9 +126,10 @@
   }
   onScrollBtt();
 
-  /* ---- 7. Contact form → mailto fallback ---- */
+  /* ---- 7. Contact form → HubSpot (repli mailto si l'envoi échoue) ---- */
+  const S2C_FORM = 'c2a45aeb-b304-4c67-a9e1-3fbe4c65dfa5';
   document.querySelectorAll('[data-contact-form]').forEach((form) => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const data = new FormData(form);
       const name = (data.get('name') || '').toString().trim();
@@ -136,19 +137,32 @@
       const company = (data.get('company') || '').toString().trim();
       const profile = (data.get('profile') || '').toString().trim();
       const message = (data.get('message') || '').toString().trim();
+      const emailEl = form.querySelector('[name="email"]');
+      const nameEl = form.querySelector('[name="name"]');
+      if (!name) { if (nameEl) nameEl.focus(); return; }
+      if (!/.+@.+\..+/.test(email)) { if (emailEl) emailEl.focus(); return; }
 
-      const subject = `[Sub2Cad] Demande de RDV — ${name || 'sans nom'}${company ? ' · ' + company : ''}`;
-      const body =
-        `Bonjour,\n\n` +
-        `Je souhaite réserver 30 minutes avec Sub2Cad.\n\n` +
-        `— Nom : ${name}\n` +
-        `— Email : ${email}\n` +
-        `— Société : ${company}\n` +
-        `— Besoin : ${profile}\n\n` +
-        (message ? `— Contexte :\n${message}\n\n` : '') +
-        `Merci,\n${name}`;
-      const mailto = `mailto:fratinaud@sub2cad.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailto;
+      const btn = form.querySelector('button[type="submit"]');
+      const original = btn ? btn.innerHTML : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Envoi…'; }
+
+      const n = window.omcLead ? window.omcLead.splitName(name) : { firstname: name, lastname: '' };
+      const body = (profile ? 'Besoin : ' + profile + '\n' : '') + message;
+      const ok = window.omcLead
+        ? await window.omcLead.submit(S2C_FORM, { firstname: n.firstname, lastname: n.lastname, email, company, message: body })
+        : false;
+
+      if (ok) {
+        form.reset();
+        if (btn) { btn.textContent = 'Merci, demande envoyée. Réponse sous 24 h ouvrées.'; }
+        setTimeout(() => { if (btn) { btn.innerHTML = original; btn.disabled = false; } }, 6000);
+        return;
+      }
+      // Repli : ouvrir la messagerie du visiteur
+      const subject = `[Sub2Cad] Demande de RDV — ${name}${company ? ' · ' + company : ''}`;
+      const mail = `Bonjour,\n\n— Nom : ${name}\n— Email : ${email}\n— Société : ${company}\n— Besoin : ${profile}\n\n${message}\n`;
+      window.location.href = `mailto:fratinaud@sub2cad.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mail)}`;
+      if (btn) { btn.innerHTML = original; btn.disabled = false; }
     });
   });
 
