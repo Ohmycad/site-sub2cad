@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.categories
+  size: 1
+  alias: cat
+permalink: "/blog/categorie/{{ cat.slug }}/"
+eleventyComputed:
+  title: "{{ cat.name }}"
+  description: "Articles Sub2Cad sur {{ cat.name }}."
+---
+<section class="blog-section">
+  <div class="container">
+    <p class="post__back"><a href="/blog/">← Tous les articles</a></p>
+    <h1 class="blog-h1">{{ cat.name }}</h1>
+    <div class="blog-grid">
+      {% for post in collections.post | byCategory(cat.name) %}
+      <a class="blog-card" href="{{ post.url }}">
+        <span class="blog-card__cat">{{ post.data.category }}</span>
+        <h2 class="blog-card__title">{{ post.data.title }}</h2>
+        <p class="blog-card__excerpt">{{ post.data.excerpt }}</p>
+        <span class="blog-card__meta">{{ post.date | dateFR }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

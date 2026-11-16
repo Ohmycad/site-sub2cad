@@ -1,0 +1,16 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://sub2cad.fr/</loc></url>
+{%- if collections.post.length %}
+  <url><loc>https://sub2cad.fr/blog/</loc></url>
+{%- endif %}
+{%- for post in collections.post %}
+  <url><loc>https://sub2cad.fr{{ post.url }}</loc><lastmod>{{ post.date.toISOString().slice(0,10) }}</lastmod></url>
+{%- endfor %}
+  <url><loc>https://sub2cad.fr/mentions-legales/</loc></url>
+  <url><loc>https://sub2cad.fr/confidentialite/</loc></url>
+</urlset>

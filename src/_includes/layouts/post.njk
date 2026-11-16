@@ -1,0 +1,24 @@
+---
+layout: layouts/base.njk
+ogType: article
+headExtra: |
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"{{ title }}","datePublished":"{{ page.date | isoDate }}","author":{"@type":"Person","name":"{{ author or 'Équipe Sub2Cad' }}"},"publisher":{"@type":"Organization","name":"Sub2Cad","logo":{"@type":"ImageObject","url":"https://sub2cad.fr/assets/img/sub2cad-logo.png"}},"mainEntityOfPage":"https://sub2cad.fr{{ page.url }}"}
+  </script>
+---
+<article class="post">
+  <div class="container container--tight">
+    <p class="post__back"><a href="/blog/">← Retour au blog</a></p>
+    <span class="post__kicker">{{ category or 'Blog' }}</span>
+    <h1 class="post__title">{{ title }}</h1>
+    <p class="post__meta">{{ page.date | dateFR }} · {{ author or 'Équipe Sub2Cad' }}</p>
+    {% if cover %}<img class="post__cover" src="{{ cover }}" alt="{{ title }}" loading="eager" />{% endif %}
+    <div class="post__body">
+      {{ content | safe }}
+    </div>
+    <div class="post__foot">
+      {% if category %}<a href="/blog/categorie/{{ category | slug }}/">Plus dans « {{ category }} »</a>{% endif %}
+      <a class="btn btn--primary" href="/#contact">Réserver 30 min</a>
+    </div>
+  </div>
+</article>

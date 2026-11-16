@@ -1,0 +1,7 @@
+{
+  "name": "sub2cad-website",
+  "version": "1.0.0",
+  "description": "Sub2Cad : site + blog (Eleventy), réseau Ohmycad",
+  "scripts": { "build": "eleventy", "serve": "eleventy --serve" },
+  "devDependencies": { "@11ty/eleventy": "^2.0.1" }
+}

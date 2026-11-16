@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+title: Blog
+permalink: /blog/
+eleventyComputed:
+  robots: "{% if collections.post.length == 0 %}noindex, follow{% else %}index, follow, max-image-preview:large{% endif %}"
+description: Blog Sub2Cad, SOLIDWORKS et 3DEXPERIENCE au quotidien pour les PME industrielles.
+---
+<section class="blog-section">
+  <div class="container">
+    <span class="eyebrow">Blog</span>
+    <h1 class="blog-h1">SOLIDWORKS et 3DEXPERIENCE, expliqués concrètement.</h1>
+    <div class="blog-cats">
+      <a class="blog-cat is-active" href="/blog/">Tous</a>
+      {% for c in collections.categories %}<a class="blog-cat" href="/blog/categorie/{{ c.slug }}/">{{ c.name }} ({{ c.count }})</a>{% endfor %}
+    </div>
+    <div class="blog-grid">
+      {% for post in collections.post %}
+      <a class="blog-card" href="{{ post.url }}">
+        {% if post.data.cover %}<img class="blog-card__img" src="{{ post.data.cover }}" alt="" loading="lazy" />{% endif %}
+        <span class="blog-card__cat">{{ post.data.category }}</span>
+        <h2 class="blog-card__title">{{ post.data.title }}</h2>
+        <p class="blog-card__excerpt">{{ post.data.excerpt }}</p>
+        <span class="blog-card__meta">{{ post.date | dateFR }}</span>
+      </a>
+      {% endfor %}
+      {% if collections.post.length == 0 %}<p class="blog-empty">Le premier article arrive bientôt.</p>{% endif %}
+    </div>
+  </div>
+</section>

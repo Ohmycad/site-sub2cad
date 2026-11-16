@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>{{ title }} · Sub2Cad</title>
+  <meta name="description" content="{{ description or excerpt }}" />
+  <meta name="robots" content="{{ robots or 'index, follow, max-image-preview:large' }}" />
+  <link rel="canonical" href="https://sub2cad.fr{{ page.url }}" />
+  <meta property="og:type" content="{{ ogType or 'website' }}" />
+  <meta property="og:title" content="{{ title }} · Sub2Cad" />
+  <meta property="og:description" content="{{ description or excerpt }}" />
+  <meta property="og:url" content="https://sub2cad.fr{{ page.url }}" />
+  <meta property="og:locale" content="fr_FR" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="/css/styles.css" />
+{{ headExtra | safe }}
+</head>
+<body>
+  <header class="header" role="banner">
+    <div class="container">
+      <div class="header__inner">
+        <a class="header__logo" href="/" aria-label="Sub2Cad, accueil">
+          <img src="/assets/img/sub2cad-logo.png" alt="Sub2Cad" width="479" height="269" />
+        </a>
+        <span class="blog-nav">
+          <a class="legal__back" href="/blog/">Blog</a>
+          <a class="btn btn--primary" href="/#contact">Réserver 30 min</a>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+{{ content | safe }}
+  </main>
+
+  <footer class="blog-footer">
+    <div class="container blog-footer__inner">
+      <span>© Sub2Cad · Membre du réseau Ohmycad</span>
+      <span>
+        <a href="/mentions-legales/">Mentions légales</a> ·
+        <a href="/confidentialite/">Confidentialité</a> ·
+        <a href="#" data-consent-open>Gérer les cookies</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/consent.js" data-hubspot="8764694" data-lang="fr" data-privacy="/confidentialite/" defer></script>
+</body>
+</html>
