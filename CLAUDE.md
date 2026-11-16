@@ -5,7 +5,7 @@ Mode d'emploi pour un agent IA (Claude Code, Cursor...) qui modifie ce site. Le 
 ## Le site
 - Site de Sub2Cad, membre du réseau Ohmycad. Langue : français.
 - Générateur : Eleventy 2 (`npm run build` → `_site/`, `npm run serve` pour prévisualiser en local).
-- Hébergement : Cloudflare Pages, projet relié à `Ohmycad/site-sub2cad`. **Chaque push sur `main` met le site en ligne en 1 à 2 minutes.** Adresse technique : https://sub2cad.pages.dev
+- Hébergement : GitHub Pages (dépôt public `Ohmycad/site-sub2cad`, workflow `.github/workflows/pages.yml`). **Chaque push sur `main` met le site en ligne en 1 à 2 minutes** (onglet Actions du dépôt pour suivre la publication).
 - Accueil : src/index.html (page unique, HTML écrit à la main).
 - Pages légales : src/mentions-legales/index.html et src/confidentialite/index.html.
 - Scripts : src/js/main.js (constante S2C_FORM), src/js/consent.js, src/js/lead-form.js.

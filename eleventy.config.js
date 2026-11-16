@@ -10,6 +10,7 @@ const slugify = (s) =>
 module.exports = function (eleventyConfig) {
   // Site vitrine : copié tel quel (jamais passé au moteur de gabarits)
   [
+    "src/.nojekyll",
     "src/index.html",
     "src/mentions-legales",
     "src/confidentialite",
@@ -18,7 +19,6 @@ module.exports = function (eleventyConfig) {
     "src/js",
     "src/robots.txt",
     "src/llms.txt",
-    "src/_headers",
   ].forEach((p) => eleventyConfig.addPassthroughCopy(p));
   ["src/index.html", "src/mentions-legales/**", "src/confidentialite/**"].forEach((p) =>
     eleventyConfig.ignores.add(p)

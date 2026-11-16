@@ -1,6 +1,6 @@
 # Site sub2cad.fr
 
-Site de Sub2Cad, géré avec Ohmycad. Hébergé sur Cloudflare Pages : chaque modification enregistrée sur la branche `main` de ce dépôt part en ligne en 1 à 2 minutes.
+Site de Sub2Cad, géré avec Ohmycad. Hébergé sur GitHub Pages : chaque modification enregistrée sur la branche `main` de ce dépôt part en ligne en 1 à 2 minutes.
 
 ## Modifier le site ou publier un article avec un agent IA
 Vous avez un accès en écriture à ce dépôt GitHub. Le plus simple :
